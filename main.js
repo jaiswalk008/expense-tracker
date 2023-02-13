@@ -3,7 +3,7 @@ form.addEventListener('submit' , onSubmit);
 let users=[];
 let i=0;
 const list =document.getElementById('user-list');
-let btn = document.createElement('button');
+list.addEventListener('click',onDelete);
 function onSubmit(e){
     e.preventDefault();
     //setting item in local storage as (name,value) pair.
@@ -19,8 +19,10 @@ function onSubmit(e){
     users.push(userData);
     let info = userData.userName +' - '+userData.userEmail+' - '+userData.userPhone;
     let newLi = document.createElement('li');
-    
+    let btn = document.createElement('button');
+    //btn.addEventListener('click',onDelete)
     btn.textContent='delete';
+    newLi.style.margin='5px';
     btn.style.marginLeft='5px';
     btn.className='delete';
     newLi.appendChild(document.createTextNode(info));
@@ -33,4 +35,12 @@ function onSubmit(e){
     e.target.name.value='';
     e.target.email.value='';
     e.target.phone.value='';
+}
+function onDelete(e){
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are you sure to delete?')){
+            var li = e.target.parentElement;
+            list.removeChild(li);
+        }
+    }
 }
