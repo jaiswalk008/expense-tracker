@@ -6,6 +6,7 @@ let users=[];
 let i=0;
 const list =document.getElementById('user-list');
 list.addEventListener('click',change);
+
 function onSubmit(e){
     e.preventDefault();
     //setting item in local storage as (name,value) pair.
@@ -60,6 +61,7 @@ function change(e){
         //removing user data to edit
         list.removeChild(li);
         //setting field values
+        
         document.getElementById('name').value=arr[0];
         document.getElementById('email').value=arr[1];
         document.getElementById('phone').value=arr[2];

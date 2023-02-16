@@ -1,8 +1,9 @@
 body{
   font-size: 120%;
+  background-color: rgb(184, 237, 219);
 }
 input{
-  font-size: 100%;
+  font-size: 120%;
 }
 button{
   font-size: 105%;
